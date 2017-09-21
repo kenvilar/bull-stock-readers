@@ -9,15 +9,15 @@ class Bootstrap {
 		$this->request = $request;
 		
 		if ( $this->request['controller'] == "" ) {
-			//TODO
+			$this->controller = 'home';
 		} else {
-			//TODO
+			$this->controller = $this->request['controller'];
 		}
 		
 		if ( $this->request['action'] == "" ) {
-			//TODO
+			$this->action = 'index';
 		} else {
-			//TODO
+			$this->action = $this->request['action'];
 		}
 	}
 }
