@@ -1,0 +1,12 @@
+{
+	"name" : "kenvilar/bull-stock-readers",
+	"description" : "A simple stock market news, analysis and blog sharing web app for traders and investors.",
+	"type" : "project",
+	"authors" : [
+		{
+			"name" : "Ken Vilar",
+			"email" : "kenvilar@gmail.com"
+		}
+	],
+	"require" : { }
+}
