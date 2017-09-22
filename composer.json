@@ -8,5 +8,7 @@
 			"email" : "kenvilar@gmail.com"
 		}
 	],
-	"require" : { }
+	"require" : {
+		"twbs/bootstrap": "^3.3"
+	}
 }
