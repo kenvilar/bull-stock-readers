@@ -8,8 +8,8 @@ define( 'DB_PASS', 'sample_password' );
 
 /* Define URL */
 // For Development
-define( 'ROOT_URL', '/bull-stock-readers/' );
-define( 'ROOT_PATH', 'http://localhost/bull-stock-readers/' );
+define( 'ROOT_PATH', '/bull-stock-readers/' );
+define( 'ROOT_URL', 'http://localhost/bull-stock-readers/' );
 
 //For Production
 define( '', '' );
