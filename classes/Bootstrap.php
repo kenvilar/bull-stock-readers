@@ -20,4 +20,21 @@ class Bootstrap {
 			$this->action = $this->request['action'];
 		}
 	}
+	
+	public function createController() {
+		if ( class_exists( $this->controller ) ) {
+			$parent_class = class_parents( $this->controller );
+			if ( in_array( 'Controller', $parent_class ) ) {
+				if ( method_exists( $this->controller, $this->action ) ) {
+					return new $this->controller( $this->action, $this->request );
+				} else {
+					echo '<p>Method does not exist.</p>';
+				}
+			} else {
+				echo '<p>Base class does not exist.</p>';
+			}
+		} else {
+			echo '<p>Controller class does not exist.</p>';
+		}
+	}
 }
