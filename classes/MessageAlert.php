@@ -2,7 +2,7 @@
 
 class MessageAlert {
 	public function setMsg( $text, $type ) {
-		if ( $_SESSION['error'] == 'error' ) {
+		if ( $type == 'error' ) {
 			$_SESSION['errorMsg'] == $text;
 		} else {
 			$_SESSION['successMsg'] == $text;
