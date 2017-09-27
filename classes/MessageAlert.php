@@ -1,7 +1,7 @@
 <?php
 
-class MessageAlert {
-	public function setMsg( $text, $type ) {
+class MessageAlerts {
+	public static function setMsg( $text, $type ) {
 		if ( $type == 'error' ) {
 			$_SESSION['errorMsg'] = $text;
 		} else {
