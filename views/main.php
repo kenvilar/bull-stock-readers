@@ -7,9 +7,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Bull Stock Readers</title>
-	<!--<link rel="stylesheet" href="<?php /*echo ROOT_PATH; */ ?>vendor/twbs/bootstrap/dist/css/bootstrap.min.css">-->
-	<link rel="stylesheet" href="../vendor/twbs/bootstrap/dist/css/bootstrap.min.css">
-	<link rel="stylesheet" href="../assets/styles.css">
+	<link rel="stylesheet" href="<?php echo ROOT_PATH; ?>vendor/twbs/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="<?php echo ROOT_PATH; ?>assets/styles.css">
 </head>
 <body>
 
@@ -27,22 +26,22 @@
 		</div>
 		<div id="navbar" class="collapse navbar-collapse">
 			<ul class="nav navbar-nav">
-				<li><a href="">Home</a></li>
-				<li><a href="">Stocks</a></li>
+				<li><a href="<?php echo ROOT_URL; ?>">Home</a></li>
+				<li><a href="<?php echo ROOT_URL; ?>/stocks">Stocks</a></li>
 			</ul>
 
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="">Welcome, {your_name}!</a></li>
-				<li><a href="">Logout</a></li>
-				<li><a href="">Login</a></li>
-				<li><a href="">Register</a></li>
+				<li><a href="<?php echo ROOT_URL; ?>">Welcome, {your_name}!</a></li>
+				<li><a href="<?php echo ROOT_URL ?>logout">Logout</a></li>
+				<li><a href="<?php echo ROOT_URL; ?>login">Login</a></li>
+				<li><a href="<?php echo ROOT_URL; ?>register">Register</a></li>
 			</ul>
 		</div>
 	</div>
 </nav>
 
-<script src="../vendor/twbs/bootstrap/docs/assets/js/vendor/jquery.min.js"></script>
-<script src="../vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="<?php echo ROOT_PATH; ?>vendor/twbs/bootstrap/docs/assets/js/vendor/jquery.min.js"></script>
+<script src="<?php echo ROOT_PATH; ?>vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
 
 </body>
 </html>
