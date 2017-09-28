@@ -20,3 +20,9 @@
 		</form>
 	</div>
 </div>
+
+<div class="container">
+	<div class="row">
+		<p>If you don't have an account you can <a href="<?php echo ROOT_URL; ?>user/register">sign up</a> for one now.</p>
+	</div>
+</div>
