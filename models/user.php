@@ -7,21 +7,25 @@ class UserModel extends Model {
 		$password = md5( $post['password'] );
 		
 		if ( $post['submit'] ) {
-			if ( $post['name'] == "" || $post['email'] == "" || $post['password'] == "" ) {
+			if ( $post['name'] == "" || $post['email'] == "" || $post['password'] == "" ) :
 				MessageAlerts::setMsg( 'Please fill in all the fields!', 'error' );
-			}
+			endif;
 			$this->query( 'INSERT INTO users ( name, email, password ) VALUES ( :name, :email, :password )' );
 			$this->bind( ':name', $post['name'] );
 			$this->bind( ':email', $post['email'] );
 			$this->bind( ':password', $password );
 			$this->execute();
+			
+			if ( $this->lastInsertId() ) :
+				header( 'Location: ' . ROOT_URL . 'users/login' );
+			endif;
 		}
 		
 		return;
 	}
 	
 	public function login() {
-		$post = filter_input_array( '', '' );
+		$post = filter_input_array( INPUT_POST, FILTER_SANITIZE_STRING );
 		
 		$password = md5( $post['password'] );
 		
