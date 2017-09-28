@@ -4,6 +4,8 @@ class UserModel extends Model {
 	public function register() {
 		$post = filter_input_array( INPUT_POST, FILTER_SANITIZE_STRING );
 		
+		$password = md5( $post['password'] );
+		
 		if ( $post['submit'] ) {
 			if ( $post['name'] == "" || $post['email'] == "" || $post['password'] == "" ) {
 				MessageAlerts::setMsg( 'Please fill in all the fields!', 'error' );
@@ -11,7 +13,7 @@ class UserModel extends Model {
 			$this->query( 'INSERT INTO users ( name, email, password ) VALUES ( :name, :email, :password )' );
 			$this->bind( ':name', $post['name'] );
 			$this->bind( ':email', $post['email'] );
-			$this->bind( ':password', $post['password'] );
+			$this->bind( ':password', $password );
 			$this->execute();
 		}
 		
@@ -21,10 +23,12 @@ class UserModel extends Model {
 	public function login() {
 		$post = filter_input_array( '', '' );
 		
+		$password = md5( $post['password'] );
+		
 		if ( $post['submit'] ) {
 			$this->query( 'SELECT * FROM users WHERE email = :email AND password = :password' );
 			$this->bind( ':email', $post['email'] );
-			$this->bind( ':password', $post['password'] );
+			$this->bind( ':password', $password );
 			
 			$user_exist = $this->single();
 			
