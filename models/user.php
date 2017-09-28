@@ -8,20 +8,23 @@ class UserModel extends Model {
 		$password_hash = password_hash( $post['password'], PASSWORD_BCRYPT, $options );
 		
 		if ( $post['submit'] ) {
-			if ( $post['name'] == "" || $post['email'] == "" || $post['password'] == "" ) :
+			if ( $post['firstname'] == "" || $post['lastname'] == "" || $post['email'] == "" || $post['password'] == "" ) :
 				MessageAlerts::setMsg( 'Please fill in all the fields!', 'error' );
+			elseif ( $post['password'] !== $post['password2'] ) :
+				MessageAlerts::setMsg( 'Passwords do not match', 'error' );
+			else :
+				$this->query( 'INSERT INTO users ( firstname, lastname, email, password ) VALUES ( :firstname, :lastname, :email, :password )' );
+				$this->bind( ':firstname', $post['firstname'] );
+				$this->bind( ':lastname', $post['lastname'] );
+				$this->bind( ':email', $post['email'] );
+				$this->bind( ':password', $password_hash );
+				$this->execute();
+				
+				if ( $this->lastInsertId() ) :
+					header( 'Location: ' . ROOT_URL . 'user/login' );
+				endif;
 			endif;
-			$this->query( 'INSERT INTO users ( firstname, lastname, email, password ) VALUES ( :firstname, :lastname, :email, :password )' );
-			$this->bind( ':firstname', $post['firstname'] );
-			$this->bind( ':lastname', $post['lastname'] );
-			$this->bind( ':email', $post['email'] );
-			$this->bind( ':password', $password_hash );
-			$this->execute();
-			
-			if ( $this->lastInsertId() ) :
-				header( 'Location: ' . ROOT_URL . 'users/login' );
-			endif;
-		}
+			}
 		
 		return;
 	}
