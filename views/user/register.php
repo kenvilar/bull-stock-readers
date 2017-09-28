@@ -9,8 +9,12 @@
 	<div class="panel-body">
 		<form method="post" action="<?php $_SERVER['PHP_SELF']; ?>">
 			<div class="form-group">
-				<label for="name">Name</label>
-				<input type="text" name="name" id="name" class="form-control"/>
+				<label for="firstname">First name</label>
+				<input type="text" name="firstname" id="firstname" class="form-control"/>
+			</div>
+			<div class="form-group">
+				<label for="lastname">Last name</label>
+				<input type="text" name="lastname" id="lastname" class="form-control"/>
 			</div>
 			<div class="form-group">
 				<label for="email">Email</label>
@@ -19,6 +23,10 @@
 			<div class="form-group">
 				<label for="password">Password</label>
 				<input type="password" name="password" id="password" class="form-control"/>
+			</div>
+			<div class="form-group">
+				<label for="password2">Confirm Password</label>
+				<input type="password" name="password2" id="password2" class="form-control"/>
 			</div>
 			<input class="btn btn-primary" name="submit" type="submit" value="Submit"/>
 		</form>
