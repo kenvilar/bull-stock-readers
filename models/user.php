@@ -38,17 +38,21 @@ class UserModel extends Model {
 			
 			$user_exist = $this->single();
 			
-			if ( count( $user_exist ) > 0 && password_verify( $post['password'], $user_exist['password'] ) ) {
-				$_SESSION['is_logged_in'] = true;
-				$_SESSION['user_data']    = array(
-					'id'        => $user_exist['id'],
-					'firstname' => $user_exist['firstname'],
-					'lastname'  => $user_exist['lastname'],
-					'email'     => $user_exist['email'],
-				);
-				header( 'Location: ' . ROOT_URL . 'stocks' );
+			if ( $post['email'] == "" || $post['password'] == "" ) {
+				MessageAlerts::setMsg( 'Please fill in all the fields!', 'error' );
 			} else {
-				MessageAlerts::setMsg( 'Incorrect email or password', 'error' );
+				if ( count( $user_exist ) > 0 && password_verify( $post['password'], $user_exist['password'] ) ) {
+					$_SESSION['is_logged_in'] = true;
+					$_SESSION['user_data']    = array(
+						'id'        => $user_exist['id'],
+						'firstname' => $user_exist['firstname'],
+						'lastname'  => $user_exist['lastname'],
+						'email'     => $user_exist['email'],
+					);
+					header( 'Location: ' . ROOT_URL . 'stocks' );
+				} else {
+					MessageAlerts::setMsg( 'Incorrect email or password', 'error' );
+				}
 			}
 		}
 		
