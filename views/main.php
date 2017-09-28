@@ -27,13 +27,14 @@
 		<div id="navbar" class="collapse navbar-collapse">
 			<ul class="nav navbar-nav">
 				<li><a href="<?php echo ROOT_URL; ?>">Home</a></li>
-				<li><a href="<?php echo ROOT_URL; ?>stocks">Stocks</a></li>
+				<?php if ( isset( $_SESSION['is_logged_in'] ) ) : ?>
+					<li><a href="<?php echo ROOT_URL; ?>stocks">Stocks</a></li>
+				<?php endif; ?>
 			</ul>
 
 			<ul class="nav navbar-nav navbar-right">
 				<?php if ( isset( $_SESSION['is_logged_in'] ) ) : ?>
-					<li><a href="<?php echo ROOT_URL; ?>">Welcome, <?php echo $_SESSION['user_data']['name'] ?>!</a>
-					</li>
+					<li><a href="<?php echo ROOT_URL; ?>">Welcome, <?php echo $_SESSION['user_data']['name'] ?></a></li>
 					<li><a href="<?php echo ROOT_URL ?>logout">Logout</a></li>
 				<?php else : ?>
 					<li><a href="<?php echo ROOT_URL; ?>login">Login</a></li>
