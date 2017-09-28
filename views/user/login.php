@@ -28,9 +28,7 @@ if ( ! isset( $_SESSION['is_logged_in'] ) ) : ?>
 				now.</p>
 		</div>
 	</div>
-	
-	<?php
 
-else :
+<?php else :
 	header( 'Location: ' . ROOT_URL );
 endif;
