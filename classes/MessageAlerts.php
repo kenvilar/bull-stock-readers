@@ -9,7 +9,7 @@ class MessageAlerts {
 		}
 	}
 	
-	public function display() {
+	public static function display() {
 		if ( isset( $_SESSION['errorMsg'] ) ) {
 			echo '<div class="alert alert-danger">' . $_SESSION['errorMsg'] . '</div>';
 			unset( $_SESSION['errorMsg'] );
