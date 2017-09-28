@@ -7,16 +7,20 @@ class UserModel extends Model {
 		$options       = array( 'cost' => 11, );
 		$password_hash = password_hash( $post['password'], PASSWORD_BCRYPT, $options );
 		
+		$firstname = htmlspecialchars( trim( $post['firstname'] ) );
+		$lastname  = htmlspecialchars( trim( $post['lastname'] ) );
+		$email     = htmlspecialchars( trim( $post['email'] ) );
+		
 		if ( $post['submit'] ) {
-			if ( $post['firstname'] == "" || $post['lastname'] == "" || $post['email'] == "" || $post['password'] == "" ) :
+			if ( $firstname == "" || $lastname == "" || $email == "" || $post['password'] == "" ) :
 				MessageAlerts::setMsg( 'Please fill in all the fields!', 'error' );
 			elseif ( $post['password'] !== $post['password2'] ) :
 				MessageAlerts::setMsg( 'Passwords do not match', 'error' );
 			else :
 				$this->query( 'INSERT INTO users ( firstname, lastname, email, password ) VALUES ( :firstname, :lastname, :email, :password )' );
-				$this->bind( ':firstname', $post['firstname'] );
-				$this->bind( ':lastname', $post['lastname'] );
-				$this->bind( ':email', $post['email'] );
+				$this->bind( ':firstname', $firstname );
+				$this->bind( ':lastname', $lastname );
+				$this->bind( ':email', $email );
 				$this->bind( ':password', $password_hash );
 				$this->execute();
 				
@@ -40,7 +44,7 @@ class UserModel extends Model {
 			
 			$user_exist = $this->single();
 			
-			if ( $post['email'] == "" || $post['password'] == "" ) {
+			if ( $email == "" || $post['password'] == "" ) {
 				MessageAlerts::setMsg( 'Please fill in all the fields!', 'error' );
 			} else {
 				if ( count( $user_exist ) > 0 && password_verify( $post['password'], $user_exist['password'] ) ) {
