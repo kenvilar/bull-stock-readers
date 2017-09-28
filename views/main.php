@@ -35,15 +35,22 @@
 			<ul class="nav navbar-nav navbar-right">
 				<?php if ( isset( $_SESSION['is_logged_in'] ) ) : ?>
 					<li><a href="<?php echo ROOT_URL; ?>">Welcome, <?php echo $_SESSION['user_data']['name'] ?></a></li>
-					<li><a href="<?php echo ROOT_URL ?>logout">Logout</a></li>
+					<li><a href="<?php echo ROOT_URL ?>users/logout">Logout</a></li>
 				<?php else : ?>
-					<li><a href="<?php echo ROOT_URL; ?>login">Login</a></li>
-					<li><a href="<?php echo ROOT_URL; ?>register">Register</a></li>
+					<li><a href="<?php echo ROOT_URL; ?>user/login">Login</a></li>
+					<li><a href="<?php echo ROOT_URL; ?>user/register">Register</a></li>
 				<?php endif; ?>
 			</ul>
 		</div>
 	</div>
 </nav>
+
+<div class="container">
+	<div class="row">
+		<?php MessageAlerts::display(); ?>
+		<?php require $view; ?>
+	</div>
+</div>
 
 <script src="<?php echo ROOT_PATH; ?>vendor/twbs/bootstrap/docs/assets/js/vendor/jquery.min.js"></script>
 <script src="<?php echo ROOT_PATH; ?>vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
