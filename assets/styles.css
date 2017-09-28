@@ -1,12 +1,9 @@
 /*!
  * Styles
  */
-body {
-	background: #8999A8;
-}
 /* Menu */
 .navbar, .dropdown-menu {
-	background: rgba(255, 255, 255, 0.25);
+	background: rgb(167, 179, 190);
 	border: none;
 }
 .nav > li > a, .dropdown-menu > li > a:focus, .dropdown-menu > li > a:hover, .dropdown-menu > li > a, .dropdown-menu > li {
@@ -16,7 +13,10 @@ body {
 	border-bottom: 1px solid transparent;
 	background: none;
 }
-.navbar a, .dropdown-menu > li > a, .dropdown-menu > li > a:focus, .dropdown-menu > li > a:hover, .navbar-toggle {
+.navbar a.navbar-brand, .dropdown-menu > li > a, .dropdown-menu > li > a:focus, .dropdown-menu > li > a:hover, .navbar-toggle {
+	color: #fff;
+}
+.navbar-default .navbar-nav>li>a {
 	color: #fff;
 }
 .dropdown-menu {
