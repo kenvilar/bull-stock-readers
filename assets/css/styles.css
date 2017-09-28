@@ -1,9 +1,10 @@
 /*!
- * Styles
+ ******* Styles
  */
+
 /* Menu */
 .navbar, .dropdown-menu {
-	background: rgb(167, 179, 190);
+	background-color: rgb(167, 179, 190);
 	border: none;
 }
 .nav > li > a, .dropdown-menu > li > a:focus, .dropdown-menu > li > a:hover, .dropdown-menu > li > a, .dropdown-menu > li {
@@ -16,12 +17,17 @@
 .navbar a.navbar-brand, .dropdown-menu > li > a, .dropdown-menu > li > a:focus, .dropdown-menu > li > a:hover, .navbar-toggle {
 	color: #fff;
 }
-.navbar-default .navbar-nav>li>a {
+.navbar-default .navbar-nav > li > a {
 	color: #fff;
 }
 .dropdown-menu {
 	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	-o-box-shadow: none;
 	box-shadow: none;
+}
+.nav li:nth-child(8n+1), .nav li.active:nth-child(8n+1) {
+	border-bottom: transparent 1px solid;
 }
 .nav li:hover:nth-child(8n+1), .nav li.active:nth-child(8n+1) {
 	border-bottom: #C4E17F 1px solid;
@@ -52,3 +58,24 @@
 	background: #fff;
 }
 /* Buttons */
+
+/* Homepage */
+.good_days_chart {
+	height: 300px;
+	padding: 0;
+	position: relative;
+}
+.home-right-column {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	font-size: smaller;
+	color: rgb(84, 84, 84);
+}
+.home-right-column-bg-img {
+	background-image: url('../images/home-graph-image.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+}
