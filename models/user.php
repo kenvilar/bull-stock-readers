@@ -11,8 +11,9 @@ class UserModel extends Model {
 			if ( $post['name'] == "" || $post['email'] == "" || $post['password'] == "" ) :
 				MessageAlerts::setMsg( 'Please fill in all the fields!', 'error' );
 			endif;
-			$this->query( 'INSERT INTO users ( name, email, password ) VALUES ( :name, :email, :password )' );
-			$this->bind( ':name', $post['name'] );
+			$this->query( 'INSERT INTO users ( firstname, lastname, email, password ) VALUES ( :firstname, :lastname, :email, :password )' );
+			$this->bind( ':firstname', $post['firstname'] );
+			$this->bind( ':lastname', $post['lastname'] );
 			$this->bind( ':email', $post['email'] );
 			$this->bind( ':password', $password_hash );
 			$this->execute();
@@ -41,9 +42,10 @@ class UserModel extends Model {
 			if ( $user_exist && password_verify( $post['password'], $password_hash ) ) {
 				$_SESSION['is_logged_in'] = true;
 				$_SESSION['user_data']    = array(
-					'id'    => $user_exist['id'],
-					'name'  => $user_exist['name'],
-					'email' => $user_exist['email'],
+					'id'        => $user_exist['id'],
+					'firstname' => $user_exist['firstname'],
+					'lastname'  => $user_exist['lastname'],
+					'email'     => $user_exist['email'],
 				);
 				header( 'Location: ' . ROOT_URL . 'stocks' );
 			} else {
