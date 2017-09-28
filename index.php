@@ -14,10 +14,12 @@ require 'classes/Model.php';
 // Controllers
 require 'controllers/home.php';
 require 'controllers/user.php';
+require 'controllers/stocks.php';
 
 // Models
 require 'models/home.php';
 require 'models/user.php';
+require 'models/stocks.php';
 
 $bootstrap  = new Bootstrap( $_GET );
 $controller = $bootstrap->createController();
