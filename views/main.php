@@ -8,7 +8,7 @@
 	<meta charset="UTF-8">
 	<title>Bull Stock Readers</title>
 	<link rel="stylesheet" href="<?php echo ROOT_PATH; ?>vendor/twbs/bootstrap/dist/css/bootstrap.min.css">
-	<link rel="stylesheet" href="<?php echo ROOT_PATH; ?>assets/styles.css">
+	<link rel="stylesheet" href="<?php echo ROOT_PATH; ?>assets/css/styles.css">
 </head>
 <body>
 
