@@ -50,6 +50,8 @@ class UserModel extends Model {
 						'email'     => $user_exist['email'],
 					);
 					header( 'Location: ' . ROOT_URL . 'stocks' );
+				} elseif ( ! filter_var( $post['email'], FILTER_VALIDATE_EMAIL ) ) {
+					MessageAlerts::setMsg( 'Invalid email format!', 'error' );
 				} else {
 					MessageAlerts::setMsg( 'Incorrect email or password', 'error' );
 				}
