@@ -34,7 +34,9 @@
 
 			<ul class="nav navbar-nav navbar-right">
 				<?php if ( isset( $_SESSION['is_logged_in'] ) ) : ?>
-					<li><a href="<?php echo ROOT_URL; ?>">Welcome, <?php echo $_SESSION['user_data']['name'] ?></a></li>
+					<li>
+						<a href="<?php echo ROOT_URL; ?>">Welcome, <?php echo $_SESSION['user_data']['firstname'] . ' ' . $_SESSION['user_data']['lastname'] ?></a>
+					</li>
 					<li><a href="<?php echo ROOT_URL ?>user/logout">Logout</a></li>
 				<?php else : ?>
 					<li><a href="<?php echo ROOT_URL; ?>user/login">Login</a></li>
