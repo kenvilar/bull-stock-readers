@@ -24,7 +24,7 @@ class UserModel extends Model {
 					header( 'Location: ' . ROOT_URL . 'user/login' );
 				endif;
 			endif;
-			}
+		}
 		
 		return;
 	}
@@ -32,17 +32,13 @@ class UserModel extends Model {
 	public function login() {
 		$post = filter_input_array( INPUT_POST, FILTER_SANITIZE_STRING );
 		
-		$options       = array( 'cost' => 11, );
-		$password_hash = password_hash( $post['password'], PASSWORD_BCRYPT, $options );
-		
 		if ( $post['submit'] ) {
-			$this->query( 'SELECT * FROM users WHERE email = :email AND password = :password' );
+			$this->query( 'SELECT * FROM users WHERE email = :email LIMIT 1' );
 			$this->bind( ':email', $post['email'] );
-			$this->bind( ':password', $password_hash );
 			
 			$user_exist = $this->single();
 			
-			if ( $user_exist && password_verify( $post['password'], $password_hash ) ) {
+			if ( count( $user_exist ) > 0 && password_verify( $post['password'], $user_exist['password'] ) ) {
 				$_SESSION['is_logged_in'] = true;
 				$_SESSION['user_data']    = array(
 					'id'        => $user_exist['id'],
