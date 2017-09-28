@@ -32,9 +32,11 @@ class UserModel extends Model {
 	public function login() {
 		$post = filter_input_array( INPUT_POST, FILTER_SANITIZE_STRING );
 		
+		$email = htmlspecialchars( trim( $post['email'] ) );
+		
 		if ( $post['submit'] ) {
 			$this->query( 'SELECT * FROM users WHERE email = :email LIMIT 1' );
-			$this->bind( ':email', $post['email'] );
+			$this->bind( ':email', $email );
 			
 			$user_exist = $this->single();
 			
@@ -50,7 +52,7 @@ class UserModel extends Model {
 						'email'     => $user_exist['email'],
 					);
 					header( 'Location: ' . ROOT_URL . 'stocks' );
-				} elseif ( ! filter_var( $post['email'], FILTER_VALIDATE_EMAIL ) ) {
+				} elseif ( ! filter_var( $email, FILTER_VALIDATE_EMAIL ) ) {
 					MessageAlerts::setMsg( 'Invalid email format!', 'error' );
 				} else {
 					MessageAlerts::setMsg( 'Incorrect email or password', 'error' );
