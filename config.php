@@ -12,5 +12,5 @@ define( 'ROOT_PATH', '/bull-stock-readers/' );
 define( 'ROOT_URL', 'http://localhost/bull-stock-readers/' );
 
 //For Production
-define( '', '' );
-define( '', '' );
+//define( '', '' );
+//define( '', '' );
