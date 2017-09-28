@@ -11,7 +11,7 @@ if ( ! isset( $_SESSION['is_logged_in'] ) ) : ?>
 			<form method="post" action="<?php $_SERVER['PHP_SELF']; ?>">
 				<div class="form-group">
 					<label for="email">Email</label>
-					<input type="text" name="email" id="email" class="form-control"/>
+					<input type="email" name="email" id="email" class="form-control"/>
 				</div>
 				<div class="form-group">
 					<label for="password">Password</label>
