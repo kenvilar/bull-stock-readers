@@ -56,6 +56,7 @@
 
 <script src="<?php echo ROOT_PATH; ?>vendor/twbs/bootstrap/docs/assets/js/vendor/jquery.min.js"></script>
 <script src="<?php echo ROOT_PATH; ?>vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="<?php echo ROOT_PATH; ?>assets/js/global.js"></script>
 
 </body>
 </html>
