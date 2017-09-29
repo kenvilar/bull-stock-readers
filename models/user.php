@@ -7,8 +7,8 @@ class UserModel extends Model {
 		$options       = array( 'cost' => 11, );
 		$password_hash = password_hash( $post['password'], PASSWORD_BCRYPT, $options );
 		
-		$firstname = htmlspecialchars( trim( $post['firstname'] ) );
-		$lastname  = htmlspecialchars( trim( $post['lastname'] ) );
+		$firstname = htmlentities( trim( $post['firstname'] ) );
+		$lastname  = htmlentities( trim( $post['lastname'] ) );
 		$email     = htmlspecialchars( trim( $post['email'] ) );
 		
 		if ( $post['submit'] ) {
