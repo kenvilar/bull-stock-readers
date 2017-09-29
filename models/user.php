@@ -52,7 +52,7 @@ class UserModel extends Model {
 				MessageAlerts::setMsg( 'Please fill in all the fields!', 'error' );
 			} elseif ( strlen( $email ) > 50 ) {
 				MessageAlerts::setMsg( 'Maximum limit of 50 characters for Email input field.', 'error' );
-			} elseif ( strlen( $post['password'] ) ) {
+			} elseif ( strlen( $post['password'] ) > 100 ) {
 				MessageAlerts::setMsg( 'Maximum limit of 100 characters for Password input field.', 'error' );
 			} else {
 				if ( count( $user_exist ) > 0 && password_verify( $post['password'], $user_exist['password'] ) ) {
