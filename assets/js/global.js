@@ -46,6 +46,18 @@
 			}, delta );
 		};
 
+		window.onload( function() {
+			var elements = document.getElementsByClassName( 'bullstockreader-type-animation' );
+			console.log( elements.length );
+			for ( var i = 0; i < elements.length; i++ ) {
+				var toType = elements[i].getAttribute( 'bull-stock-reader-text-animation' );
+				var timeInterval = elements[i].getAttribute( 'bull-stock-reader-text-animation-interval' );
+				if ( toType ) {
+					new TxtType( elements[i], JSON.parse( toType ), timeInterval );
+				}
+			}
+		} );
+
 	} ); // End of document ready function
 
 })( jQuery );
