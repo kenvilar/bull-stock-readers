@@ -29,16 +29,19 @@ class Bootstrap {
 					return new $this->controller( $this->action, $this->request );
 				} else {
 					echo '<p>Method does not exist.</p>';
+					header( 'Location: ' . ROOT_URL );
 					
 					return;
 				}
 			} else {
 				echo '<p>Base class does not exist.</p>';
+				header( 'Location: ' . ROOT_URL );
 				
 				return;
 			}
 		} else {
 			echo '<p>Controller class does not exist.</p>';
+			header( 'Location: ' . ROOT_URL );
 			
 			return;
 		}
