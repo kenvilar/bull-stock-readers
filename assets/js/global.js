@@ -46,7 +46,7 @@
 			}, delta );
 		};
 
-		window.onload( function() {
+		window.onload = function() {
 			var elements = document.getElementsByClassName( 'bullstockreader-type-animation' );
 			console.log( elements.length );
 			for ( var i = 0; i < elements.length; i++ ) {
@@ -59,7 +59,7 @@
 			var bullstockcss = document.createElement( 'style' );
 			bullstockcss.type = 'text/css';
 			document.body.appendChild( bullstockcss );
-		} );
+		};
 
 	} ); // End of document ready function
 
