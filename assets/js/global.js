@@ -26,7 +26,7 @@
 			this.el.innerHTML = '<span class="text-type-wrap">' + this.text + '</span>';
 
 			var that = this;
-			var delta = 300 - Math.random() * 100;
+			var delta = 150 - Math.random() * 100; // 150 speed of toType
 
 			if ( this.toDelete ) {
 				delta /= 2;
