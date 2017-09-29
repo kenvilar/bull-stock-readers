@@ -33,7 +33,7 @@ if ( ! isset( $_SESSION['is_logged_in'] ) ) : ?>
 					<input type="password" name="password2" id="password2" class="form-control" aria-required="true"
 					       required/>
 				</div>
-				<input class="btn btn-primary" name="submit" type="submit" value="Submit"/>
+				<input class="btn btn-primary btn-lg" name="submit" type="submit" value="Submit"/>
 			</form>
 		</div>
 	</div>
