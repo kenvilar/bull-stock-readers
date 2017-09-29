@@ -7,6 +7,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Bull Stock Readers</title>
+	<link rel="shortcut icon" type="image/png" href="<?php echo ROOT_PATH; ?>favicon.png"/>
 	<link rel="stylesheet" href="<?php echo ROOT_PATH; ?>vendor/twbs/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="<?php echo ROOT_PATH; ?>assets/css/styles.css">
 </head>
