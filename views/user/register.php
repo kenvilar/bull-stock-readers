@@ -16,22 +16,23 @@ if ( ! isset( $_SESSION['is_logged_in'] ) ) : ?>
 				</div>
 				<div class="form-group">
 					<label for="lastname">Last name</label>
-					<input type="text" name="lastname" id="lastname" class="form-control" aria-required="true"
-					       required maxlength="50"/>
+					<input type="text" name="lastname" id="lastname" class="form-control" aria-required="true" required
+					       maxlength="50"/>
 				</div>
 				<div class="form-group">
 					<label for="email">Email</label>
-					<input type="email" name="email" id="email" class="form-control" aria-required="true" required/>
+					<input type="email" name="email" id="email" class="form-control" aria-required="true" required
+					       maxlength="50"/>
 				</div>
 				<div class="form-group">
 					<label for="password">Password</label>
 					<input type="password" name="password" id="password" class="form-control" aria-required="true"
-					       required/>
+					       required maxlength="100"/>
 				</div>
 				<div class="form-group">
 					<label for="password2">Confirm Password</label>
 					<input type="password" name="password2" id="password2" class="form-control" aria-required="true"
-					       required/>
+					       required maxlength="100"/>
 				</div>
 				<input class="btn btn-primary btn-lg" name="submit" type="submit" value="Register"/>
 			</form>

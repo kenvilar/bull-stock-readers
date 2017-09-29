@@ -11,12 +11,11 @@ if ( ! isset( $_SESSION['is_logged_in'] ) ) : ?>
 			<form method="post" action="<?php $_SERVER['PHP_SELF']; ?>">
 				<div class="form-group">
 					<label for="email">Email</label>
-					<input type="email" name="email" id="email" class="form-control" aria-required="true" required/>
+					<input type="email" name="email" id="email" class="form-control" aria-required="true" required maxlength="50"/>
 				</div>
 				<div class="form-group">
 					<label for="password">Password</label>
-					<input type="password" name="password" id="password" class="form-control" aria-required="true"
-					       required/>
+					<input type="password" name="password" id="password" class="form-control" aria-required="true" required maxlength="100"/>
 				</div>
 				<input class="btn btn-primary btn-lg" type="submit" name="submit" value="Log in">
 			</form>
