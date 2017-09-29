@@ -14,6 +14,10 @@ class UserModel extends Model {
 		if ( $post['submit'] ) {
 			if ( $firstname == "" || $lastname == "" || $email == "" || $post['password'] == "" ) :
 				MessageAlerts::setMsg( 'Please fill in all the fields!', 'error' );
+			elseif ( strlen( $firstname ) > 50 || strlen( $lastname ) > 50 || strlen( $email ) > 50 ) :
+				MessageAlerts::setMsg( 'Firstname, Lastname, and Email input fields should have a maximum limit of 50 characters only.', 'error' );
+			elseif ( strlen( $post['password'] ) > 100 || strlen( $post['password2'] ) > 100 ) :
+				MessageAlerts::setMsg( 'Password input fields should have a maximum limit of 100 characters only.', 'error' );
 			elseif ( $post['password'] !== $post['password2'] ) :
 				MessageAlerts::setMsg( 'Passwords do not match', 'error' );
 			else :
@@ -46,6 +50,10 @@ class UserModel extends Model {
 			
 			if ( $email == "" || $post['password'] == "" ) {
 				MessageAlerts::setMsg( 'Please fill in all the fields!', 'error' );
+			} elseif ( strlen( $email ) > 50 ) {
+				MessageAlerts::setMsg( 'Maximum limit of 50 characters for Email input field.', 'error' );
+			} elseif ( strlen( $post['password'] ) ) {
+				MessageAlerts::setMsg( 'Maximum limit of 100 characters for Password input field.', 'error' );
 			} else {
 				if ( count( $user_exist ) > 0 && password_verify( $post['password'], $user_exist['password'] ) ) {
 					$_SESSION['is_logged_in'] = true;
