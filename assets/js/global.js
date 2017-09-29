@@ -56,6 +56,9 @@
 					new TxtType( elements[i], JSON.parse( toType ), timeInterval );
 				}
 			}
+			var bullstockcss = document.createElement( 'style' );
+			bullstockcss.type = 'text/css';
+			document.body.appendChild( bullstockcss );
 		} );
 
 	} ); // End of document ready function
