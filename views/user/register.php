@@ -12,12 +12,12 @@ if ( ! isset( $_SESSION['is_logged_in'] ) ) : ?>
 				<div class="form-group">
 					<label for="firstname">First name</label>
 					<input type="text" name="firstname" id="firstname" class="form-control" aria-required="true"
-					       required/>
+					       required maxlength="50"/>
 				</div>
 				<div class="form-group">
 					<label for="lastname">Last name</label>
 					<input type="text" name="lastname" id="lastname" class="form-control" aria-required="true"
-					       required/>
+					       required maxlength="50"/>
 				</div>
 				<div class="form-group">
 					<label for="email">Email</label>
