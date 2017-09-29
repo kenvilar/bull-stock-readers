@@ -8,7 +8,7 @@
 			this.el = el;
 			this.loop = 0;
 			this.period = parseInt( period, 10 ) || 2000;
-			this.txt = "";
+			this.text = "";
 			this.tick();
 			this.toDelete = false;
 		};
@@ -48,7 +48,6 @@
 
 		window.onload = function() {
 			var elements = document.getElementsByClassName( 'bullstockreader-type-animation' );
-			console.log( elements.length );
 			for ( var i = 0; i < elements.length; i++ ) {
 				var toType = elements[i].getAttribute( 'bull-stock-reader-text-animation' );
 				var timeInterval = elements[i].getAttribute( 'bull-stock-reader-text-animation-interval' );
@@ -58,6 +57,7 @@
 			}
 			var bullstockcss = document.createElement( 'style' );
 			bullstockcss.type = 'text/css';
+			bullstockcss.innerHTML = '.bullstockreader-type-animation > .text-type-wrap { border-right: 0.08em solid #000; }';
 			document.body.appendChild( bullstockcss );
 		};
 
