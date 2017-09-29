@@ -7,6 +7,7 @@ abstract class Model {
 	public function __construct() {
 		$dsn       = 'mysql:dbname=' . DB_NAME . ';host=' . DB_HOST;
 		$this->dbh = new PDO( $dsn, DB_USER, DB_PASS );
+		$this->dbh->setAttribute( PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC );
 	}
 	
 	public function query( $query ) {
@@ -40,13 +41,13 @@ abstract class Model {
 	public function resultSet() {
 		$this->execute();
 		
-		return $this->stmt->fetchAll( PDO::FETCH_ASSOC );
+		return $this->stmt->fetchAll();
 	}
 	
 	public function single() {
 		$this->execute();
 		
-		return $this->stmt->fetch( PDO::FETCH_ASSOC );
+		return $this->stmt->fetch();
 	}
 	
 	public function lastInsertId() {
