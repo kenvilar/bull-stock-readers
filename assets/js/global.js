@@ -49,8 +49,8 @@
 		window.onload = function() {
 			var elements = document.getElementsByClassName( 'bullstockreader-type-animation' );
 			for ( var i = 0; i < elements.length; i++ ) {
-				var toType = elements[i].getAttribute( 'bull-stock-reader-text-animation' );
-				var timeInterval = elements[i].getAttribute( 'bull-stock-reader-text-animation-interval' );
+				var toType = elements[i].getAttribute( 'data-brs-typing' );
+				var timeInterval = elements[i].getAttribute( 'data-brs-typing-interval' );
 				if ( toType ) {
 					new TxtType( elements[i], JSON.parse( toType ), timeInterval );
 				}
