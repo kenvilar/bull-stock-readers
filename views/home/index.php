@@ -11,7 +11,9 @@
 			<div class="row">
 				<div class="col-md-6 jumbotron">
 					<h2>What is Bull Stock Readers?</h2>
-					<p>A simple stock market news, analysis and blog sharing web app for traders and investors.</p>
+					<p>A <span class="bullstockreader-type-animation" bull-stock-reader-text-animation-interval="2000"
+					           bull-stock-reader-text-animation='[  "simple", "pure", "fun" ]'></span> stock market
+						news, analysis and blog sharing web app for traders and investors.</p>
 				</div>
 
 				<div class="col-md-6 text-center">
