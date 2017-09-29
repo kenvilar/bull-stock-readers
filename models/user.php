@@ -12,8 +12,15 @@ class UserModel extends Model {
 		$email     = htmlspecialchars( trim( $post['email'] ) );
 		
 		if ( $post['submit'] ) {
+			$this->query( 'SELECT * FROM users WHERE email = :email LIMIT 1' );
+			$this->bind( ':email', $email );
+			
+			$user_exist = $this->single();
+			
 			if ( $firstname == "" || $lastname == "" || $email == "" || $post['password'] == "" ) :
 				MessageAlerts::setMsg( 'Please fill in all the fields!', 'error' );
+			elseif ( $user_exist ) :
+				MessageAlerts::setMsg( 'A user with this email already exists.', 'error' );
 			elseif ( strlen( $firstname ) > 50 || strlen( $lastname ) > 50 || strlen( $email ) > 50 ) :
 				MessageAlerts::setMsg( 'Firstname, Lastname, and Email input fields should have a maximum limit of 50 characters only.', 'error' );
 			elseif ( strlen( $post['password'] ) > 100 || strlen( $post['password2'] ) > 100 ) :
